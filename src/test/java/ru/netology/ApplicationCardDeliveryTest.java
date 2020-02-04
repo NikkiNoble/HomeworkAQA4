@@ -14,11 +14,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.BACK_SPACE;
 
 public class ApplicationCardDeliveryTest {
-    private SelenideElement cityName = $("[data-test-id=city] input");
-    private SelenideElement date = $("[data-test-id=date] input");
-    private SelenideElement personName = $("[data-test-id=name] input");
-    private SelenideElement phoneNumber = $("[data-test-id=phone] input");
-    private SelenideElement agreement = $("[data-test-id=agreement]");
+    public SelenideElement cityName = $("[data-test-id=city] input");
+    public SelenideElement date = $("[data-test-id=date] input");
+    public SelenideElement personName = $("[data-test-id=name] input");
+    public SelenideElement phoneNumber = $("[data-test-id=phone] input");
+    public SelenideElement agreement = $("[data-test-id=agreement]");
 
     @Test
     void ShouldSubmitRequest () {
