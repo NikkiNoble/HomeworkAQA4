@@ -14,15 +14,15 @@ import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.BACK_SPACE;
 
 public class ApplicationCardDeliveryTest {
-    public SelenideElement cityName = $("[data-test-id=city] input");
-    public SelenideElement date = $("[data-test-id=date] input");
-    public SelenideElement personName = $("[data-test-id=name] input");
-    public SelenideElement phoneNumber = $("[data-test-id=phone] input");
-    public SelenideElement agreement = $("[data-test-id=agreement]");
+    private SelenideElement cityName = $("[data-test-id=city] input");
+    private SelenideElement date = $("[data-test-id=date] input");
+    private SelenideElement personName = $("[data-test-id=name] input");
+    private SelenideElement phoneNumber = $("[data-test-id=phone] input");
+    private SelenideElement agreement = $("[data-test-id=agreement]");
 
     @Test
     void ShouldSubmitRequest () {
-        open("http://localhost:8888/");
+        open("http://localhost:7777/");
         LocalDate dt = LocalDate.now();
         LocalDate value = dt.plus(Period.ofDays(7));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY");
@@ -37,7 +37,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldSubmitRequestWithSetDate () {
-        open("http://localhost:8888/");
+        open("http://localhost:7777/");
         cityName.setValue("Си");
         $(withText("Симферополь")).click();
         personName.setValue("Иван-Иванов");
@@ -48,7 +48,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestWrongCity() {
-        open("http://localhost:8888/");
+        open("http://localhost:7777/");
         cityName.setValue("New York");
         personName.setValue("Иван Иванов");
         phoneNumber.setValue("+79111111111");
@@ -58,7 +58,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestWrongNumber() {
-        open("http://localhost:8888/");
+        open("http://localhost:7777/");
         cityName.setValue("Москва");
         personName.setValue("Иван Иванов");
         phoneNumber.setValue("790-222-3335");
@@ -68,7 +68,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestEmptyField() {
-        open("http://localhost:8888/");
+        open("http://localhost:7777/");
         cityName.setValue("Москва");
         phoneNumber.setValue("+79111111111");
         agreement.click();
@@ -77,7 +77,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestWrongDate() {
-        open("http://localhost:8888/");
+        open("http://localhost:7777/");
         cityName.setValue("Москва");
         date.doubleClick().sendKeys(BACK_SPACE);
         date.setValue("20.20.5000");
