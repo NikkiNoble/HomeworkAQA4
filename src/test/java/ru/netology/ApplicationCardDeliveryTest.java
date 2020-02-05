@@ -22,7 +22,7 @@ public class ApplicationCardDeliveryTest {
 
     @Test
     void ShouldSubmitRequest () {
-        open("http://localhost:7777");
+        open("http://localhost:9999");
         LocalDate dt = LocalDate.now();
         LocalDate value = dt.plus(Period.ofDays(7));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY");
@@ -37,7 +37,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldSubmitRequestWithSetDate () {
-        open("http://localhost:7777");
+        open("http://localhost:9999");
         cityName.setValue("Си");
         $(withText("Симферополь")).click();
         personName.setValue("Иван-Иванов");
@@ -48,7 +48,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestWrongCity() {
-        open("http://localhost:7777");
+        open("http://localhost:9999");
         cityName.setValue("New York");
         personName.setValue("Иван Иванов");
         phoneNumber.setValue("+79111111111");
@@ -58,7 +58,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestWrongNumber() {
-        open("http://localhost:7777");
+        open("http://localhost:9999");
         cityName.setValue("Москва");
         personName.setValue("Иван Иванов");
         phoneNumber.setValue("790-222-3335");
@@ -68,7 +68,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestEmptyField() {
-        open("http://localhost:7777");
+        open("http://localhost:9999");
         cityName.setValue("Москва");
         phoneNumber.setValue("+79111111111");
         agreement.click();
@@ -77,7 +77,7 @@ public class ApplicationCardDeliveryTest {
     }
     @Test
     void ShouldNotSubmitRequestWrongDate() {
-        open("http://localhost:7777");
+        open("http://localhost:9999");
         cityName.setValue("Москва");
         date.doubleClick().sendKeys(BACK_SPACE);
         date.setValue("20.20.5000");
